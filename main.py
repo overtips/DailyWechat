@@ -35,17 +35,6 @@ def get_weather(city):
     weather = res['data'][0]
     return weather
 
-def get_count(born_date):
-    delta = today - datetime.strptime(born_date, "%Y-%m-%d")
-    return delta.days
-
-
-def get_birthday(birthday):
-    nextdate = datetime.strptime(str(today.year) + "-" + birthday, "%Y-%m-%d")
-    if nextdate < today:
-        nextdate = nextdate.replace(year=nextdate.year + 1)
-    return (nextdate - today).days
-
 client = WeChatClient(app_id, app_secret)
 wm = WeChatMessage(client)
 
@@ -55,8 +44,6 @@ f.close()
 data = js_text['data']
 num = 0
 for user_info in data:
-    born_date = user_info['born_date']
-    birthday = born_date[5:]
     city = user_info['city']
     user_id = user_info['user_id']
     name=' 【'+user_info['user_name'].upper()+'】 '
