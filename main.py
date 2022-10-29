@@ -103,14 +103,14 @@ for user_info in data:
         'value': weather['uvDescription'], 
         'color': get_random_color()
         }
-     data['born_days'] = {
+    data['born_days'] = {
         'value': get_count(born_date), 
         'color': get_random_color()
-        }
-        data['birthday_left'] = {
+            }
+    data['birthday_left'] = {
         'value': get_birthday(birthday), 
         'color': get_random_color()
-        }
+            }
     data['air'] = {
         'value': weather['air_level'], 
         'color': get_random_color()
