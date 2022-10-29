@@ -22,8 +22,8 @@ def get_time():
 
 def get_words():
     words = requests.get("https://api.shadiao.pro/chp")
-	if words.status_code != 200:
-		return get_words()
+    if words.status_code != 200:
+        return get_words()
     return words.json()['data']['text']
 	
 def get_count(born_date):
