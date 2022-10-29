@@ -23,17 +23,17 @@ def get_time():
 def get_words():
     words = requests.get("https://api.shadiao.pro/chp")
     if words.status_code != 200:
-        return get_words()
+    return get_words()
     return words.json()['data']['text']
 	
 def get_count(born_date):
 	delta = today - datetime.strptime(born_date, "%Y-%m-%d")
-	    return delta.days
+	return delta.days
 		
 def get_birthday(birthday):
 	nextdate = datetime.strptime(str(today.year) + "-" + birthday, "%Y-%m-%d")
 	if nextdate < today:
-		nextdate = nextdate.replace(year=nextdate.year + 1)
+	nextdate = nextdate.replace(year=nextdate.year + 1)
 	return (nextdate - today).days
 
 def get_random_color():
