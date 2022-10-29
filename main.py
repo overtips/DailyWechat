@@ -58,7 +58,7 @@ for user_info in data:
     birthday = born_date[5:]
     city = user_info['city']
     user_id = user_info['user_id']
-    name=' 【'+user_info['user_name'].upper()+'】
+    name=user_info['user_name'].upper()
     
     weather= get_weather(city)
 
