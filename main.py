@@ -1,5 +1,4 @@
-from datetime import date, datetime, timedelta
-import math
+from datetime import datetime, timedelta
 from wechatpy import WeChatClient
 from wechatpy.client.api import WeChatMessage
 import requests
@@ -25,16 +24,6 @@ def get_words():
     if words.status_code != 200:
         return get_words()
     return words.json()['data']['text']
-	
-def get_count(born_date):
-	delta = today - datetime.strptime(born_date, "%Y-%m-%d")
-	return delta.days
-		
-def get_birthday(birthday):
-	nextdate = datetime.strptime(str(today.year) + "-" + birthday, "%Y-%m-%d")
-	if nextdate < today:
-		nextdate = nextdate.replace(year=nextdate.year + 1)
-	return (nextdate - today).days
 
 def get_random_color():
     return "#%06x" % random.randint(0, 0xFFFFFF)
@@ -44,6 +33,17 @@ def get_weather(city):
     res = requests.get(url).json()
     weather = res['data'][0]
     return weather
+
+def get_count(born_date):
+    delta = today - datetime.strptime(born_date, "%Y-%m-%d")
+    return delta.days
+
+
+def get_birthday(birthday):
+    nextdate = datetime.strptime(str(today.year) + "-" + birthday, "%Y-%m-%d")
+    if nextdate < today:
+        nextdate = nextdate.replace(year=nextdate.year + 1)
+    return (nextdate - today).days
 
 client = WeChatClient(app_id, app_secret)
 wm = WeChatMessage(client)
@@ -87,6 +87,14 @@ for user_info in data:
         'value': weather['tem2'], 
         'color': '#01847F'
         }
+    data['born_days'] = {
+        'value': get_count(born_date), 
+        'color': get_random_color()
+        }
+    data['birthday_left'] = {
+        'value': get_birthday(birthday), 
+        'color': get_random_color()
+        }
     data['air'] = {
         'value': weather['air_level'], 
         'color': get_random_color()
@@ -103,23 +111,8 @@ for user_info in data:
         'value': weather['uvDescription'], 
         'color': get_random_color()
         }
-    data['born_days'] = {
-        'value': get_count(born_date), 
-        'color': get_random_color()
-            }
-    data['birthday_left'] = {
-        'value': get_birthday(birthday), 
-        'color': get_random_color()
-            }
-    data['air'] = {
-        'value': weather['air_level'], 
-        'color': get_random_color()
-            }
-    data['wind'] = {
-        'value': weather['win'][0], 
-        'color': get_random_color()
-            }
-    res = wm.send_template(user_id, template_id, data,'https://froan.cn')
+    
+    res = wm.send_template(user_id, template_id, data)
     print(res)
     num += 1
 print(num)
