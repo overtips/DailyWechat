@@ -60,7 +60,7 @@ for user_info in data:
     user_id = user_info['user_id']
     name=user_info['user_name'].upper()
     
-    weather= get_weather(牡丹区)
+    weather= get_weather('牡丹区')
 
     data = dict()
     data['time'] = {
