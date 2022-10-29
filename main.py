@@ -53,7 +53,7 @@ js_text = json.load(f)
 f.close()
 data = js_text['data']
 num = 0
-or user_info in data:
+for user_info in data:
     born_date = user_info['born_date']
     birthday = born_date[5:]
     city = user_info['city']
