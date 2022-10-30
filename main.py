@@ -32,7 +32,7 @@ def get_random_color():
 def get_weather(city):
     url = "https://v0.yiketianqi.com/api?unescape=1&version=v91&appid=43656176&appsecret=I42og6Lm&ext=&cityid=&city=" '菏泽'
     res = requests.get(url).json()
-    weather = res['data']['list'][0]
+    weather = res['data'][0]
     return weather['weather'], math.floor(weather['high']), math.floor(weather['low']), weather['city']
 	
 def get_count(born_date):
