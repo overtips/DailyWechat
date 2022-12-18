@@ -19,18 +19,24 @@ def get_time():
     a = dictDate[nowtime.strftime('%A')]
     return nowtime.strftime("%Y年%m月%d日 %H时%M分 ")+ a
 
-def get_words():
-    words = requests.get("https://api.shadiao.pro/chp")
-    if words.status_code != 200:
-        return get_words()
-    return words.json()['data']['text']
+def get_oneTalk():
+    oneTalk = requests.get("https://saying.api.azwcl.com/saying/get
+")
+    {
+        "code": 200             # 请求成功均为 200
+        "data": {               # 数据
+            "content": "..."    # 内容
+        }
+    }
+
+    return oneTalk.json()['data']['content']
 
 def get_random_color():
     return "#%06x" % random.randint(0, 0xFFFFFF)
 
 
 def get_weather(city):
-    url = "https://v0.yiketianqi.com/api?unescape=1&version=v91&appid=43656176&appsecret=I42og6Lm&ext=&cityid=&city=" '菏泽'
+    url = "https://v0.yiketianqi.com/api?unescape=1&version=v91&appid=43656176&appsecret=I42og6Lm&ext=&cityid=&city=" '兰陵'
     res = requests.get(url).json()
     weather = res['data'][0]
     return weather
@@ -60,15 +66,15 @@ for user_info in data:
     user_id = user_info['user_id']
     name=user_info['user_name'].upper()
     
-    weather= get_weather('菏泽')
+    weather= get_weather('兰陵')
 
     data = dict()
     data['time'] = {
         'value': get_time(), 
         'color':'#470024'
         }
-    data['words'] = {
-        'value': get_words(), 
+    data['oneTalk'] = {
+        'value': get_oneTalk(), 
         'color': get_random_color()
         }
     data['weather'] = {
