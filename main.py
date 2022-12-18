@@ -73,7 +73,7 @@ for user_info in data:
         'color':'#470024'
         }
     data['oneTalk'] = {
-        'value': get_oneTalk(), 
+        'value': get_oneTalk(oneTalk), 
         'color': get_random_color()
         }
     data['weather'] = {
