@@ -21,7 +21,7 @@ def get_time():
 
 def get_oneTalk():
     url='https://saying.api.azwcl.com/saying/get'
-    oneTalk = requests.get(url).json()
+    res = requests.get(url).json()
     {
         "data": {               # 数据
             "content": ""    # 内容
