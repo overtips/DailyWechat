@@ -20,16 +20,16 @@ def get_time():
     return nowtime.strftime("%Y年%m月%d日 %H时%M分 ")+ a
 
 def get_oneTalk():
-    oneTalk = requests.get("https://saying.api.azwcl.com/saying/get
-")
+    url='https://saying.api.azwcl.com/saying/get'
+	oneTalk = requests.get(url).json()
     {
         "code": 200             # 请求成功均为 200
         "data": {               # 数据
             "content": "..."    # 内容
         }
     }
-
-    return oneTalk.json()['data']['content']
+	oneTalk=res['data']['content']
+    return oneTalk
 
 def get_random_color():
     return "#%06x" % random.randint(0, 0xFFFFFF)
