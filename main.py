@@ -23,9 +23,8 @@ def get_oneTalk():
     url='https://saying.api.azwcl.com/saying/get'
     oneTalk = requests.get(url).json()
     {
-        "code": 200             # 请求成功均为 200
         "data": {               # 数据
-            "content": "..."    # 内容
+            "content": ""    # 内容
         }
     }
 	oneTalk=res['data']['content']
