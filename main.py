@@ -27,7 +27,7 @@ def get_oneTalk():
             "content": ""    # 内容
         }
     }
-	oneTalk=res['data']['content']
+    oneTalk=res['data']['content']
     return oneTalk
 
 def get_random_color():
