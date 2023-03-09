@@ -55,15 +55,14 @@ for user_info in data:
     user_id = user_info['user_id']
     name=user_info['user_name'].upper()
     
-    weather= get_weather('牡丹')
+    weather= get_weather(牡丹)
 
     data = dict()
     data['time'] = {
         'value': get_time(), 
         'color':'#470024'
         }
-
-    date['weather'] = {
+date['weather'] = {
         'value': weather['wea'], 
         'color': '#002fa4'
         }
