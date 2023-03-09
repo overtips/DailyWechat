@@ -61,14 +61,14 @@ for user_info in data:
     name=user_info['user_name'].upper()
     
     weather= get_weather('牡丹')
-
+    onetalk= get_onetalk('content')
     data = dict()
     data['time'] = {
         'value': get_time(), 
         'color':'#470024'
         }
     data['onetalk'] = {
-        'value': get_onetalk['content'], 
+        'value': onetalk['content'], 
         'color': '#92DFB2'
         }
     data['weather'] = {
