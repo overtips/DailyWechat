@@ -30,7 +30,7 @@ def get_random_color():
 
 
 def get_weather(city):
-    url = "https://v0.yiketianqi.com/api?unescape=1&version=v91&appid=43656176&appsecret=I42og6Lm&ext=&cityid=&city=" '兰陵'
+    url = "https://v0.yiketianqi.com/api?unescape=1&version=v63&appid=43656176&appsecret=I42og6Lm&ext=&city=牡丹"
     res = requests.get(url).json()
     weather = res['data'][0]
     return weather
@@ -60,7 +60,7 @@ for user_info in data:
     user_id = user_info['user_id']
     name=user_info['user_name'].upper()
     
-    weather= get_weather('兰陵')
+    weather= get_weather('牡丹')
 
     data = dict()
     data['time'] = {
