@@ -20,11 +20,9 @@ def get_time():
     return nowtime.strftime("%Y年%m月%d日 %H时%M分 ")+ a
 
 def get_onetalk():
-    url='https://saying.api.azwcl.com/saying/get'
-    session = requests.Session()
-    session.verify = False
+    url='https://apis.jxcxin.cn/api/yiyan?type=json'
     res = session.get(url).json()
-    onetalk=res['data'][0]['content']
+    onetalk=res['data'][0]
     return onetalk
 
 def get_random_color():
@@ -70,7 +68,7 @@ for user_info in data:
         'color':'#470024'
         }
     data['onetalk'] = {
-    'value': get_onetalk()['content'], 
+    'value': get_onetalk()['msg'], 
     'color': '#92DFB2'
         }
     data['weather'] = {
