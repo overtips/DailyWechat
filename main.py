@@ -20,7 +20,7 @@ def get_time():
     return nowtime.strftime("%Y年%m月%d日 %H时%M分 ")+ a
 
 def get_onetalk():
-    url='https://apis.jxcxin.cn/api/yiyan?type=json'
+    url='https://api.vvhan.com/api/ian?type=json'
     res = requests.get(url).json()
     onetalk=res['data'][0]
     return onetalk
@@ -68,7 +68,7 @@ for user_info in data:
         'color':'#470024'
         }
     data['onetalk'] = {
-    'value': get_onetalk()['msg'], 
+    'value': get_onetalk()['vhan'], 
     'color': '#92DFB2'
         }
     data['weather'] = {
