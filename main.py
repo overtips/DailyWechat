@@ -62,7 +62,7 @@ for user_info in data:
         'color':'#470024'
         }
     data['weather'] = {
-        'value': weather['wea'], 
+        'value': weather["wea"], 
         'color': '#002fa4'
         }
     data['city'] = {
