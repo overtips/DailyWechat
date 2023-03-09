@@ -22,7 +22,7 @@ def get_time():
 def get_onetalk():
     url='https://saying.api.azwcl.com/saying/get'
     res = requests.get(url).json()
-    onetalk=res['data']['0']
+    onetalk=res['data'][0]['content']
     return onetalk
 
 def get_random_color():
@@ -68,8 +68,8 @@ for user_info in data:
         'color':'#470024'
         }
     data['onetalk'] = {
-        'value': get_onetalk['content'], 
-        'color': '#92DFB2'
+    'value': get_onetalk()['content'], 
+    'color': '#92DFB2'
         }
     data['weather'] = {
         'value': weather['wea'], 
