@@ -19,11 +19,6 @@ def get_time():
     a = dictDate[nowtime.strftime('%A')]
     return nowtime.strftime("%Y年%m月%d日 %H时%M分 ")+ a
 
-def get_onetalk():
-    url='https://api.vvhan.com/api/ian?type=json'
-    res = requests.get(url).json()
-    onetalk=res['data'][0]
-    return onetalk
 
 def get_random_color():
     return "#%06x" % random.randint(0, 0xFFFFFF)
@@ -67,10 +62,7 @@ for user_info in data:
         'value': get_time(), 
         'color':'#470024'
         }
-    data['onetalk'] = {
-    'value': get_onetalk()['vhan'], 
-    'color': '#92DFB2'
-        }
+
     data['weather'] = {
         'value': weather['wea'], 
         'color': '#002fa4'
