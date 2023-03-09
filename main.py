@@ -63,7 +63,7 @@ for user_info in data:
         'color':'#470024'
         }
 
-    data['weather'] = {
+    date['weather'] = {
         'value': weather['wea'], 
         'color': '#002fa4'
         }
