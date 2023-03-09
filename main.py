@@ -62,7 +62,7 @@ for user_info in data:
         'value': get_time(), 
         'color':'#470024'
         }
-date['weather'] = {
+    date['weather'] = {
         'value': weather['wea'], 
         'color': '#002fa4'
         }
