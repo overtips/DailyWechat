@@ -61,7 +61,7 @@ for user_info in data:
     name=user_info['user_name'].upper()
     
     weather= get_weather('牡丹')
-    onetalk= get_onetalk('content')
+
     data = dict()
     data['time'] = {
         'value': get_time(), 
