@@ -21,7 +21,7 @@ def get_time():
 
 def get_onetalk():
     url='https://apis.jxcxin.cn/api/yiyan?type=json'
-    res = session.get(url).json()
+    res = requests.get(url).json()
     onetalk=res['data'][0]
     return onetalk
 
