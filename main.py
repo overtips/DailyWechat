@@ -68,7 +68,7 @@ for user_info in data:
         'color':'#470024'
         }
     data['onetalk'] = {
-        'value': onetalk['content'], 
+        'value': get_onetalk['content'], 
         'color': '#92DFB2'
         }
     data['weather'] = {
