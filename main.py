@@ -19,7 +19,7 @@ def get_time():
     a = dictDate[nowtime.strftime('%A')]
     return nowtime.strftime("%Y年%m月%d日 %H时%M分 ")+ a
 
-def def get_onetalk():
+def get_onetalk():
     url='https://saying.api.azwcl.com/saying/get'
     session = requests.Session()
     session.verify = False
